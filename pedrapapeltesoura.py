@@ -59,6 +59,8 @@ while True:
         print("Ganhou, o Spock vaporizou a pedra")
     elif escolhaUsuario == "tesoura" and escolhaPc == "spock":
         print("Ganhou, o Spock quebrou a tesoura")
+    elif escolhaUsuario == "papel" and escolhaPc == "spock":
+        print("Ganhou, o papel refuta o spock")
         
     if escolhaUsuario == "pedra" and escolhaPc == "papel":
         print("Perdeu, papel cobre pedra")
@@ -76,6 +78,8 @@ while True:
         print("Perdeu, o spock vaporizou a pedra")
     elif escolhaUsuario == "tesoura" and escolhaPc == "spock":
         print("Perdeu, o spock quebrou a tesoura")
+    elif escolhaUsuario == "spock" and escolhaPc == "papel":
+        print("Perdeu, o papel refuta o spock")
 
 
     elif escolhaPc == escolhaUsuario:
