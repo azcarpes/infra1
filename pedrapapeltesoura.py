@@ -53,7 +53,7 @@ while True:
         print("Ganhou, lagarto envenena o Spock")
     elif escolhaPc == "papel" and escolhaUsuario == "lagarto":
         print("Ganhou, lagarto come o papel")
-    elif escolhaUsuario == "lagarto" and escolhaPc == "tesoura":
+    elif escolhaUsuario == "tesoura" and escolhaPc == "lagarto":
         print("Ganhou, a tesoura decapitou o lagarto")
     elif escolhaUsuario == "pedra" and escolhaPc == "spock":
         print("Ganhou, o Spock vaporizou a pedra")
