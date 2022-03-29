@@ -1,7 +1,20 @@
-#encoding:UTF-8
+# encoding:UTF-8
 import random
 
-while True: 
+userScore = 0
+pcScore = 0
+totalScore = 0
+
+
+while True:
+    def percent():
+        if totalScore > 0:
+            x = ((totalScore - pcScore) / totalScore) * 100
+            return x
+        elif totalScore == 0:
+            x = 0
+            return x
+
     aleatorio = random.randrange(0, 3)
     escolhaPc = ""
     print("1)Pedra")
@@ -9,9 +22,9 @@ while True:
     print("3)Tesoura")
     print("4)Lagarto")
     print("5)Spock")
-    print("6)Sair do Programa")
+    print("6)Show Scores")
     opcao = int(input("O que você escolhe: "))
-    
+
     if opcao == 1:
         escolhaUsuario = "pedra"
     elif opcao == 2:
@@ -23,13 +36,19 @@ while True:
     elif opcao == 5:
         escolhaUsuario = "spock"
     elif opcao == 6:
-        print ("Nos vemos!")
+        userScore = userScore + userWin
+        pcScore = pcScore + pcWin
+        totalScore = userScore + pcScore
+        print("Pontuações: ")
+        print("Usuário: ", userScore)
+        print("Pc: ", pcScore)
+        print("Porcentagem de vitórias: ", percent(), "% ")
         break
     else:
-        print ("Valor Invalido")
+        print("Valor Invalido")
         continue
-        
-    print("Tua escolha: ", escolhaUsuario)   
+
+    print("Tua escolha: ", escolhaUsuario)
     if aleatorio == 0:
         escolhaPc = "pedra"
     elif aleatorio == 1:
@@ -42,45 +61,71 @@ while True:
         escolhaPc = "spock"
     print("PC escolheu: ", escolhaPc)
     print("...")
-    
+
+    userWin = 0
+    pcWin = 0
+
     if escolhaPc == "pedra" and escolhaUsuario == "papel":
         print("Ganhou, papel cobre pedra")
+        userWin += 1
     elif escolhaPc == "papel" and escolhaUsuario == "tesoura":
         print("Ganhou, tesoura corta papel")
+        userWin += 1
     elif escolhaPc == "tesoura" and escolhaUsuario == "pedra":
         print("Ganhou, pedra amassa tesoura")
+        userWin += 1
+    elif escolhaPc == "lagarto" and escolhaUsuario == "pedra":
+        print("Ganhou, a pedra esmagou o lagarto")
+        userWin += 1
     elif escolhaPc == "spock" and escolhaUsuario == "lagarto":
         print("Ganhou, lagarto envenena o Spock")
+        userWin += 1
     elif escolhaPc == "papel" and escolhaUsuario == "lagarto":
         print("Ganhou, lagarto come o papel")
+        userWin += 1
     elif escolhaUsuario == "tesoura" and escolhaPc == "lagarto":
         print("Ganhou, a tesoura decapitou o lagarto")
-    elif escolhaUsuario == "pedra" and escolhaPc == "spock":
+        userWin += 1
+    elif escolhaUsuario == "spock" and escolhaPc == "pedra":
         print("Ganhou, o Spock vaporizou a pedra")
-    elif escolhaUsuario == "tesoura" and escolhaPc == "spock":
+        userWin += 1
+    elif escolhaUsuario == "spock" and escolhaPc == "tesoura":
         print("Ganhou, o Spock quebrou a tesoura")
+        userWin += 1
     elif escolhaUsuario == "papel" and escolhaPc == "spock":
         print("Ganhou, o papel refuta o spock")
-        
+        userWin += 1
+
     if escolhaUsuario == "pedra" and escolhaPc == "papel":
         print("Perdeu, papel cobre pedra")
+        pcWin += 1
     elif escolhaUsuario == "papel" and escolhaPc == "tesoura":
         print("Perdeu, tesoura corta papel")
+        pcWin += 1
     elif escolhaUsuario == "tesoura" and escolhaPc == "pedra":
         print("Perdeu, pedra amassa tesoura")
+        pcWin += 1
+    elif escolhaUsuario == "lagarto" and escolhaPc == "pedra":
+        print("Perdeu, pedra esmaga o lagarto")
+        pcWin += 1
     elif escolhaUsuario == "spock" and escolhaPc == "lagarto":
         print("Perdeu, o lagarto envenenou o Spock")
+        pcWin += 1
     elif escolhaUsuario == "papel" and escolhaPc == "lagarto":
         print("Perdeu, o lagarto comeu o papel")
+        pcWin += 1
     elif escolhaUsuario == "lagarto" and escolhaPc == "tesoura":
         print("Perdeu, o lagarto foi decapitado pela tesoura")
+        pcWin += 1
     elif escolhaUsuario == "pedra" and escolhaPc == "spock":
         print("Perdeu, o spock vaporizou a pedra")
+        pcWin += 1
     elif escolhaUsuario == "tesoura" and escolhaPc == "spock":
         print("Perdeu, o spock quebrou a tesoura")
+        pcWin += 1
     elif escolhaUsuario == "spock" and escolhaPc == "papel":
         print("Perdeu, o papel refuta o spock")
-
+        pcWin += 1
 
     elif escolhaPc == escolhaUsuario:
         print("Empate")
